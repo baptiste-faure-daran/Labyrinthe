@@ -1,0 +1,59 @@
+body {
+    margin: 0;
+}
+
+.laby_cont {
+    padding: 40px;
+    width: 50%;
+}
+
+.container {
+    width: 40%;
+    margin: auto;
+}
+
+.laby_grid {
+    display: grid;
+    grid-auto-rows: 1fr;
+}
+
+.laby_grid::before {
+    content: '';
+    width: 0;
+    padding-bottom: 100%;
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+}
+
+.laby_grid *:first-child {
+    grid-row: 1 / 1;
+    grid-column: 1 / 1;
+}
+
+.laby_grid * {
+    background: rgba(0,0,0,0.1);
+}
+
+.top {
+    border-top: 2px black solid;
+}
+
+.right {
+    border-right: 2px black solid;
+}
+
+.bot {
+    border-bottom: 2px black solid;
+}
+
+.left {
+    border-left: 2px black solid;
+}
+
+.start {
+    background-color: green;
+}
+
+.exit {
+    background-color: orangered;
+}

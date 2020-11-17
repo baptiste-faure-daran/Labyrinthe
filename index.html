@@ -1,21 +1,35 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
     <title>Test</title>
     <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
     <script type="text/javascript" src="script.js"></script>
+    <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-<div>
-    <h1>Choisissez le labyrinthe qui vous intérèsse </h1>
-    <select name="lab_id" id="lab_id"></select>
-    <button type="submit">Charger ce Labyrinthe</button>
+    <div class="container">
+        <h1>Choisissez le labyrinthe qui vous intérèsse </h1>
+        <select name="lab_id" id="lab_id">
+            <option>-- Choisir taille de labyrinthe</option>
+        </select>
+        <select name="ex_id" id="ex_id">
+            <option>-- Choisir déclinaison</option>
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+        </select>
+        <button onclick="readLab()">Charger ce Labyrinthe</button>
 
-</div>
-<script>
+        <div class="laby_grid">
 
-</script>
+        </div>
+    </div>
+    <script>
+
+    </script>
 
 </body>
 
