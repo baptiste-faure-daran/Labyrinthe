@@ -28,6 +28,10 @@ body {
 .laby_grid *:first-child {
     grid-row: 1 / 1;
     grid-column: 1 / 1;
+    background-color: orange;
+}
+.laby_grid *:last-child {
+    background-color: green;
 }
 
 .laby_grid * {
@@ -56,4 +60,8 @@ body {
 
 .exit {
     background-color: orangered;
+}
+
+.visit {
+    background-color: cornflowerblue;
 }
