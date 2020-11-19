@@ -25,7 +25,7 @@ function readLab() {
     let cell_laby = "<div></div>";
     $(".laby_grid").css('grid-template-columns', `repeat(${laby_id}, 1fr)`);
     let posX = posY = 0;
-    
+
     laby.forEach(cell => {
         let neighbour = [];
         // Garder en mémoire la position sur le labyrinthe 
@@ -78,6 +78,35 @@ function DFS() {
     console.log("Trouvé : " + current['posX'] + '-' + current['posY']);
 }
 
+function BFS() {
+    debugger;
+    clearAllTimeouts();
+    let i = 0;
+    let speed = 150;
+    let visited = [];
+    let stack = [];
+    let pos = positionLab;
+    stack.push(pos['0-0']);
+    let current = stack.shift();
+    while (current != pos[(size - 1) + '-' + (size - 1)]) {
+        let delay = speed * i;
+        // Change la couleur de la div associée à la case actuellement parcourue
+        changeCellColor(current['posX'] + '-' + current['posY'], delay);
+        current['neighbour'].forEach(direction => {
+            let neighbour = getNeighbour(direction, visited, current);
+            if (neighbour != null) {
+                if (!visited.includes(neighbour)) {
+                    stack.push(neighbour);
+                    visited.push(neighbour);
+                }
+            }
+        })
+        current = stack.shift();
+        i++;
+    }
+    console.log("Trouvé : " + current['posX'] + '-' + current['posY']);
+}
+
 function changeCellColor(id, delay) {
     setTimeout(() => $('#' + id).addClass('visit'), delay)
 }
@@ -86,17 +115,17 @@ function getNeighbour(direction, visited, curr) {
     let x = curr['posX'];
     let y = curr['posY'];
     let cell;
-    switch(direction) {
+    switch (direction) {
         case "top":
             cell = positionLab[(x - 1) + '-' + y];
             break;
         case "bot":
             cell = positionLab[(x + 1) + '-' + y];
             break;
-        case "right" :
+        case "right":
             cell = positionLab[x + '-' + (y + 1)];
             break;
-        case "left" :
+        case "left":
             cell = positionLab[x + '-' + (y - 1)];
             break;
     }
@@ -107,7 +136,7 @@ function getNeighbour(direction, visited, curr) {
 }
 
 function clearAllTimeouts() {
-    var id = window.setTimeout(function() {}, 0);
+    var id = window.setTimeout(function () { }, 0);
 
     while (id--) {
         window.clearTimeout(id);

@@ -9,7 +9,9 @@ body {
 
 .container {
     width: 40%;
-    margin: auto;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 5em;
 }
 
 .laby_grid {
